@@ -19,6 +19,7 @@ export class BorderColorDirective implements AfterViewInit {
             midleAge ='#6E6422',
             lateAdulthood = 'saddlebrown',
             dependentElder = 'firebrick';
+      
         if (this.userAge >= 1 && this.userAge < 5) {
             this.elRef.nativeElement.style.border = `2px solid ${earlyChildhood}`;
         }
@@ -41,5 +42,4 @@ export class BorderColorDirective implements AfterViewInit {
             this.elRef.nativeElement.style.border = `2px solid ${dependentElder}`;
         }
     }
-
 }
