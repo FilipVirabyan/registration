@@ -9,9 +9,9 @@ import {UserModel} from "../../../core/models/user.model";
 export class UserCardComponent implements OnInit {
 @Input()
 public user:UserModel;
+  
   constructor() { }
 
   ngOnInit() {
   }
-
 }
