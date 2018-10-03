@@ -21,12 +21,9 @@ export class UserImageDirective implements AfterViewInit {
         } else {
             if (this.userGender === 'male') {
                 this.elemRender.setAttribute(this.elRef.nativeElement, 'src', `${imgPath}male1.png`);
-
             } else {
                 this.elemRender.setAttribute(this.elRef.nativeElement, 'src', `${imgPath}female1.png`);
-
             }
         }
     }
-
 }
