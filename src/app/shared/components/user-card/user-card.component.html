@@ -1,0 +1,14 @@
+
+  <div class="card d-flex m-4 userCard " appBorderColor [userAge]="user.personAge">
+    <img class="card-img-top" appUserImage [userImage]="user.icon"
+         alt="image" class="userImage"  [userGender]="user.personGender">
+    <div class="card-body">
+      <h5 class="card-title">{{user.personName}}</h5>
+      <ul>
+        <li>Surname: {{user.personSurname}}</li>
+        <li>age: {{user.personAge}}</li>
+        <li>Gender: {{user.personGender}}</li>
+        <li>Email: {{user.personEmail}}</li>
+      </ul>
+    </div>
+  </div>

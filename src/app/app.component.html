@@ -1,20 +1,172 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container pl-0  mt-2 ">
+    <h1 class="d-flex justify-content-center">Registration</h1>
+    <form [formGroup]="loginForm">
+        <div class="row">
+            <div class="col">
+                <label for="personName">Name</label>
+                <input type="text" class="form-control" formControlName="personName" id="personName" placeholder="Name">
 
+                <div class="nameVal">
+                    <div *ngIf="loginForm.controls['personName'].touched && loginForm.controls['personName'].invalid &&
+              loginForm.controls['personName'].hasError('required')" style="color: red">
+                        Field is required
+                    </div>
+
+                    <div *ngIf="loginForm.controls['personName'].invalid &&
+              loginForm.controls['personName'].hasError('minlength')" style="color: red">
+                        Min length of field is 4
+                    </div>
+
+                    <div *ngIf="loginForm.controls['personName'].touched && loginForm.controls['personName'].invalid &&
+              loginForm.controls['personName'].hasError('pattern')" style="color: red">
+                        You can enter only English letters
+                    </div>
+
+                    <div *ngIf="loginForm.controls['personName'].touched && loginForm.controls['personName'].invalid &&
+              loginForm.controls['personName'].hasError('maxlength')" style="color: red">
+                        You can enter only 10 letters
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+                <label for="personSurname">Surname</label>
+                <input type="text" class="form-control" formControlName="personSurname" id="personSurname"
+                       placeholder="Surname">
+                <div class="surnameVal">
+                    <div *ngIf="loginForm.controls['personSurname'].touched && loginForm.controls['personSurname'].invalid &&
+              loginForm.controls['personSurname'].hasError('required')" style="color: red">
+                        Field is required
+                    </div>
+
+                    <div *ngIf="loginForm.controls['personSurname'].invalid &&
+              loginForm.controls['personSurname'].hasError('minlength')" style="color: red">
+                        Min length of field is 4
+                    </div>
+
+                    <div *ngIf="loginForm.controls['personSurname'].touched && loginForm.controls['personSurname'].invalid &&
+              loginForm.controls['personSurname'].hasError('pattern')" style="color: red">
+                        You can enter only English letters
+                    </div>
+
+                    <div *ngIf="loginForm.controls['personSurname'].touched && loginForm.controls['personSurname'].invalid &&
+              loginForm.controls['personSurname'].hasError('maxlength')" style="color: red">
+                        You can enter only 10 letters
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <label for="personGender">Gender</label>
+                <select id="inputState" formControlName="personGender" id="personGender" class="form-control">
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                </select>
+                <div class="genderVal">
+                    <div *ngIf="loginForm.controls['personGender'].touched && loginForm.controls['personGender'].invalid &&
+                    loginForm.controls['personGender'].hasError('required')" style="color: red">
+                        Field is required
+                    </div>
+                </div>
+
+            </div>
+            <div class="m-1">
+                <div *ngIf="loginForm.controls['personGender'].value === 'female'" class="row">
+                    <div class="col">
+                        <img src="../assets/images/female1.png" alt="female1" class="icon">
+                        <input type="radio"  formControlName="icon" value="female1">
+                    </div>
+                    <div class="col">
+                        <img src="../assets/images/female2.png " alt="female2" class="icon">
+                        <input type="radio"  formControlName="icon" value="female2">
+                    </div>
+                    <div class="col">
+                        <img src="../assets/images/female3.png" alt="female3" class="icon">
+                        <input type="radio"  formControlName="icon" value="female3">
+                    </div>
+                </div>
+                <div *ngIf="loginForm.controls['personGender'].value === 'male'" class="row">
+                    <div class="col">
+                        <img src="../assets/images/male1.png" alt="male1" class="icon">
+                        <input type="radio" formControlName="icon" value="male1" >
+                    </div>
+                    <div class="col">
+                        <img src="../assets/images/male2.png " alt="male2" class="icon">
+                        <input type="radio" formControlName="icon" value="male2">
+                    </div>
+                    <div class="col">
+                        <img src="../assets/images/male3.png" alt="male3" value="1" class="icon">
+                        <input type="radio" formControlName="icon" value="male3"  >
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2">
+                <label for="personAge">Age</label>
+                <input type="text" id="personAge" placeholder="age" class="form-control" formControlName="personAge">
+                <div class="ageVal">
+                    <div *ngIf="loginForm.controls['personAge'].touched && loginForm.controls['personAge'].invalid &&
+                    loginForm.controls['personAge'].hasError('required')" style="color: red">
+                        Field is required
+                    </div>
+                    <div *ngIf="loginForm.controls['personAge'].touched && loginForm.controls['personAge'].invalid &&
+              loginForm.controls['personAge'].hasError('maxlength')" style="color: red">
+                        You can enter only 2 numbers
+                    </div>
+                    <div *ngIf="loginForm.controls['personAge'].touched && loginForm.controls['personAge'].invalid &&
+              loginForm.controls['personAge'].hasError('pattern')" style="color: red">
+                        You can enter only numbers
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="col">
+                <label for="personEmail">Email</label>
+                <input type="email" class="form-control" id="personEmail" formControlName="personEmail"
+                       placeholder="Email">
+                <div class="emailVal">
+                    <div *ngIf="loginForm.controls['personEmail'].touched && loginForm.controls['personEmail'].invalid &&
+              loginForm.controls['personEmail'].hasError('required')" style="color: red">
+                        Field is required
+                    </div>
+
+                    <div *ngIf="loginForm.controls['personEmail'].touched && loginForm.controls['personEmail'].invalid &&
+              loginForm.controls['personEmail'].hasError('pattern')" style="color: red">
+                        Please enter valid email
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <label for="personPassword">Password</label>
+                <input type="password" class="form-control" id="personPassword" formControlName="personPassword"
+                       placeholder="Password">
+                <div class="passVal">
+                    <div *ngIf="loginForm.controls['personPassword'].touched && loginForm.controls['personPassword'].invalid &&
+              loginForm.controls['personPassword'].hasError('required')" style="color: red">
+                        Field is required
+                    </div>
+                    <div *ngIf="loginForm.controls['personPassword'].invalid &&
+              loginForm.controls['personPassword'].hasError('minlength')" style="color: red">
+                        Min length of field is 5
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid" (click)="submitForm()" class="btn btn-primary mt-2">
+            Sign in
+        </button>
+    </form>
+
+</div>
+<div class="container">
+    <div class="row">
+        <app-user-card *ngFor="let user of users" [user]="user"></app-user-card>
+    </div>
+</div>
